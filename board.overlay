@@ -1,0 +1,21 @@
+/ {
+    aliases {
+        sw0  = &mysw0;
+        led0 = &myled0;
+    };
+
+    gpio_mock: gpio_mock {
+        compatible = "zephyr,gpio-mock";
+        #gpio-cells = <2>;
+    };
+
+    mysw0: sw_0 {
+        gpios = <&gpio_mock 5 GPIO_ACTIVE_LOW>;
+        label = "Push button switch 0";
+    };
+
+    myled0: led_0 {
+        gpios = <&gpio_mock 6 GPIO_ACTIVE_HIGH>;
+        label = "Mock LED 0";
+    };
+};
